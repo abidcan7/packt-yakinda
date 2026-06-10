@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PACKT — Yakında</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: #3A3838;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Subtle grain */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 180px;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    /* Packt bracket icon */
+    .icon {
+      animation: fadeDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* Logo wordmark */
+    .logo {
+      font-family: 'Aptos', 'Segoe UI', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 58px;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: #fff;
+      animation: fadeDown 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+    }
+
+    /* Thin rule */
+    .rule {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.3);
+      animation: scaleUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+      transform-origin: top;
+    }
+
+    /* Yakında label */
+    .yakinda {
+      font-family: 'Aptos', 'Segoe UI', sans-serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+    }
+
+    /* Plus blink */
+    .plus {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 1.1em;
+      color: #fff;
+      animation: blink 1.6s ease-in-out infinite;
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleUp {
+      from { transform: scaleY(0); opacity: 0; }
+      to   { transform: scaleY(1); opacity: 1; }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Packt orijinal bracket mark ikonu (beyaz) -->
+    <svg class="icon" width="140" height="58" viewBox="100 325 800 330" xmlns="http://www.w3.org/2000/svg">
+      <path fill="white" d="M124.3,500v37.57h319.34c10.37,0,18.79,8.41,18.79,18.79v93.92h37.57v-112.71c0-20.75-16.82-37.57-37.57-37.57H124.3Z"/>
+      <polygon fill="white" points="875.7 500 875.7 462.43 556.36 462.43 537.57 443.64 537.57 349.72 500 349.72 500 500 875.7 500"/>
+    </svg>
+
+    <div class="logo">packt</div>
+    <div class="rule"></div>
+    <p class="yakinda">yakında <span class="plus">+</span></p>
+
+  </div>
+</body>
+</html>
